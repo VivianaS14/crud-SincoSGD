@@ -1,6 +1,6 @@
-import { doc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addDocument } from "../../features/documents/documentsSlice";
 import useDocuments from "../../hooks/useDocuments";
 import DocsItem from "../DocsItem/DocsItem";
 
@@ -8,6 +8,11 @@ const DocsList = () => {
   const { docData } = useDocuments();
   const [documents, setDocuments] = useState([]);
   const docu = useSelector((state) => state.documents);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(addDocument(docData));
+  }, []);
 
   useEffect(() => {
     setDocuments(docu);

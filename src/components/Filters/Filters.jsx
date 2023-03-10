@@ -6,13 +6,11 @@ import useDocuments from "../../hooks/useDocuments";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 import { db } from "../../firebase";
 import { addDocument } from "../../features/documents/documentsSlice";
-import DocsList from "../DocsList/DocsList";
 
 const Filters = () => {
-  const { docData, getData } = useDocuments();
+  const { docData } = useDocuments();
   const [ext, setExt] = useState([]);
   const searchValue = useSelector((state) => state.search.search);
-  const documents = useSelector((state) => state.documents);
   const dispatch = useDispatch();
 
   useEffect(() => {

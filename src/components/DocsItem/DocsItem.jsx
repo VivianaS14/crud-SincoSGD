@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Dropzone from "react-dropzone";
 import Swal from "sweetalert2";
-import { v4 as uuid } from "uuid";
 import {
   ref,
   deleteObject,
@@ -10,7 +8,6 @@ import {
 } from "firebase/storage";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { storage, db } from "../../firebase";
-import { FaSpinner } from "react-icons/fa";
 
 const DocsItem = ({ document }) => {
   const { docName, ext, lastModified, name, path, type, id } = document;
